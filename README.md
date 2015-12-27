@@ -8,13 +8,14 @@ Here are the data for the project:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip 
 
 The R script run_analysis.R perform the following task to produce average_measurement.txt - the result of the task 5.
-1.	Merges the training and the test sets to create one data set.
-2.	Extracts only the measurements on the mean and standard deviation for each measurement. 
-3.	Uses descriptive activity names to name the activities in the data set
-4.	Appropriately labels the data set with descriptive variable names. 
-5.	From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+1. Merges the training and the test sets to create one data set.
+2. Extracts only the measurements on the mean and standard deviation for each measurement.
+3. Uses descriptive activity names to name the activities in the data set
+4. Appropriately labels the data set with descriptive variable names. 
+5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+
 To run the R script should following the following steps in R:
-A.  Copy X_Train.txt and X_test.txt data under the source code sub-folder ./data  (“directory” has sub-folder as the default value)
+A. Copy X_Train.txt and X_test.txt data under the source code sub-folder ./data  (“directory” has sub-folder as the default value)
 B. setwd to the same dir as this source code
 C. source("run_analysis.R")
 D. run_analysis() or run_analysis(path). Path is where to have those data files. Be aware the folder should not have other files other than data file.
