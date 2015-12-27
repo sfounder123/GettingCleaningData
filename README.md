@@ -22,17 +22,17 @@ The R script run_analysis.R perform the following task to produce average_measur
 
 <br>The code is listed in below (run_analysts.R):</br>
 <br>run_analysis <- function(directory="./"){
-<br>&nbsb&nbsb    multmerge = function(mypath,colnames,colfmt){
-<br>&nbsb&nbsb&nbsb&nbsb        filenames=list.files(path=mypath,pattern="X_[a-zA-Z]{1,}.txt", full.names=TRUE)
-<br>&nbsb&nbsb&nbsb&nbsb        datalist = lapply(filenames, function(x){read.fwf(file=x,col.names=colnames,widths=colfmt)})
-<br>&nbsb&nbsb&nbsb&nbsb        Reduce(function(x,y) {rbind(x,y)}, datalist)}
-<br>&nbsb&nbsb    dfn<-read.table(paste(directory,"features.txt",sep="/"))
-<br>&nbsb&nbsb    vname<-gsub("\\(|\\)|-|,","",dfn[grepl("[sS]td|[mM]ean",dfn$V2)=="TRUE","V2"])
-<br>&nbsb&nbsb    fmt<-as.numeric(gsub("FALSE","-16",gsub("TRUE","16",grepl("[sS]td|[Mm]ean",dfn$V2))))
-<br>&nbsb&nbsb    DF=multmerge(directory,vname,fmt)
-<br>&nbsb&nbsb    DF_mean=sapply(DF,mean)
-<br>&nbsb&nbsb    write.table(DF_mean,file="./average_measurement.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
-<br>&nbsb&nbsb    write.table(vname,file="./average_measurement_descriptions.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
+<br>&nbsp;&nbsp;    multmerge = function(mypath,colnames,colfmt){
+<br>&nbsp;&nbsp;&nbsp;&nbsp;        filenames=list.files(path=mypath,pattern="X_[a-zA-Z]{1,}.txt", full.names=TRUE)
+<br>&nbsp;&nbsp;&nbsp;&nbsp;        datalist = lapply(filenames, function(x){read.fwf(file=x,col.names=colnames,widths=colfmt)})
+<br>&nbsp;&nbsp;&nbsp;&nbsp;        Reduce(function(x,y) {rbind(x,y)}, datalist)}
+<br>&nbsp;&nbsp;    dfn<-read.table(paste(directory,"features.txt",sep="/"))
+<br>&nbsp;&nbsp;    vname<-gsub("\\(|\\)|-|,","",dfn[grepl("[sS]td|[mM]ean",dfn$V2)=="TRUE","V2"])
+<br>&nbsp;&nbsp;    fmt<-as.numeric(gsub("FALSE","-16",gsub("TRUE","16",grepl("[sS]td|[Mm]ean",dfn$V2))))
+<br>&nbsp;&nbsp;    DF=multmerge(directory,vname,fmt)
+<br>&nbsp;&nbsp;    DF_mean=sapply(DF,mean)
+<br>&nbsp;&nbsp;    write.table(DF_mean,file="./average_measurement.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
+<br>&nbsp;&nbsp;    write.table(vname,file="./average_measurement_descriptions.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
 <br>}
 
 
