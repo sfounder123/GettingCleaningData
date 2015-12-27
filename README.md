@@ -14,13 +14,13 @@ The R script run_analysis.R perform the following task to produce average_measur
 <br>4. Appropriately labels the data set with descriptive variable names. </br>
 <br>5. From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.</br>
 
-To run the R script should following the following steps in R:
-A. Copy X_Train.txt and X_test.txt data under the source code sub-folder ./data  (“directory” has sub-folder as the default value)
-B. setwd to the same dir as this source code
-C. source("run_analysis.R")
-D. run_analysis() or run_analysis(path). Path is where to have those data files. Be aware the folder should not have other files other than data file.
+<br>To run the R script should following the following steps in R:
+<br>A. Copy X_Train.txt and X_test.txt data under the source code sub-folder ./data  (“directory” has sub-folder as the default value)
+<br>B. setwd to the same dir as this source code
+<br>C. source("run_analysis.R")
+<br>D. run_analysis() or run_analysis(path). Path is where to have those data files. Be aware the folder should not have other files other than data file.
 
-The code is listed in below (run_analysts.R):
+<br>The code is listed in below (run_analysts.R):</br>
 run_analysis <- function(directory="./data"){
     multmerge = function(mypath){
         filenames=list.files(path=mypath, full.names=TRUE)
