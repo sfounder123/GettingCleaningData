@@ -20,10 +20,6 @@ C. source("run_analysis.R")
 D. run_analysis() or run_analysis(path). Path is where to have those data files. Be aware the folder should not have other files other than data file.
 
 The code is listed in below (run_analysts.R):
-# 1. Copy X_Train.txt and X_test.txt data under the source code sub-folder ./data
-# 2. setwd to the same dir as this source code
-# 3. source("run_analysis.R")
-# 4. run_analysis() or the path run_analysis(path) that have those data file only
 run_analysis <- function(directory="./data"){
     multmerge = function(mypath){
         filenames=list.files(path=mypath, full.names=TRUE)
