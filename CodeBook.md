@@ -1,16 +1,16 @@
 ##CodeBook
 Code implementation:  (All double quotes in below are either the variables or methods in the code.)
+
 1.	Preparation of downloading the data ( https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip ) and unzip to obtain all files.
-2.	Regards to merges, since data sets ‘where 70% of the volunteers were selected for generating the training data and 30% the test data’, there are no reducing rows necessary. 
-The function “multmerge” return the combination of ‘test’ and ‘train’ (“filenames”) records.
+2.	Regards to merges, since data sets ‘where 70% of the volunteers were selected for generating the training data and 30% the test data’, there are no reducing rows necessary. The function “multmerge” return the combination of ‘test’ and ‘train’ (“filenames”) records.
 3.	Based on feacher.txt and the requirement of measurements on the mean and standard deviation, there are 73 measurements have been identified. The script used fixed format file read in each rows for those 73 measurements into “datalist”.
 4.	After read in both files of 73 measurements ( “DF” hold the merge result), the script uses “sapply” function to perform average (mean). The result set is hold in “DF_mean”.
-5.	Use write.table to dump “DF_mean” results to file system with name “average_measurement.txt” in the same path as the source code.
+5.	se write.table to dump “DF_mean” results to file system with name “average_measurement.txt” in the same path as the source code.
 
 The definition of the result (average_measurement.txt):
 
-tBodyAcc.mean.X
-tBodyAcc.mean.Y
+<br>yAcc.mean.X</br>
+<br>yAcc.mean.Y</br>
 <br>tBodyAcc.mean.Z</br>
 <br>tBodyAcc.std.X</br>
 <br>tBodyAcc.std.Y</br>
