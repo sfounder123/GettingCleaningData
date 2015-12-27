@@ -18,7 +18,7 @@ The R script run_analysis.R perform the following task to produce average_measur
 <br>A. Copy X_Train.txt and X_test.txt data under the source code sub-folder ./data  (“directory” has sub-folder as the default value)
 <br>B. setwd to the same dir as this source code
 <br>C. source("run_analysis.R")
-<br>D. run_analysis() or run_analysis(path). Path is where to have those data files. Be aware the folder should not have other files other than data file.
+<br>D. run_analysis(). Be aware the folder should not have other files other than data file.
 
 <br>The code is listed in below (run_analysts.R):</br>
 <br>run_analysis <- function(directory="./data"){
