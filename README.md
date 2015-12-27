@@ -21,14 +21,18 @@ The R script run_analysis.R perform the following task to produce average_measur
 <br>D. run_analysis(). Be aware the folder should not have other files other than data file.
 
 <br>The code is listed in below (run_analysts.R):</br>
-<br>run_analysis <- function(directory="./data"){
-<br>    multmerge = function(mypath){
-<br>        filenames=list.files(path=mypath, full.names=TRUE)
-<br>        datalist = lapply(filenames, function(x){read.fwf(file=x,col.names=c('tBodyAcc-mean-X','tBodyAcc-mean-Y','tBodyAcc-mean-Z','tBodyAcc-std-X','tBodyAcc-std-Y','tBodyAcc-std-Z','tGravityAcc-mean-X','tGravityAcc-mean-Y','tGravityAcc-mean-Z','tGravityAcc-std-X','tGravityAcc-std-Y','tGravityAcc-std-Z','tBodyAccJerk-mean-X','tBodyAccJerk-mean-Y','tBodyAccJerk-mean-Z','tBodyAccJerk-std-X','tBodyAccJerk-std-Y','tBodyAccJerk-std-Z','tBodyGyro-mean-X','tBodyGyro-mean-Y','tBodyGyro-mean-Z','tBodyGyro-std-X','tBodyGyro-std-Y','tBodyGyro-std-Z','tBodyGyroJerk-mean-X','tBodyGyroJerk-mean-Y','tBodyGyroJerk-mean-Z','tBodyGyroJerk-std-X','tBodyGyroJerk-std-Y','tBodyGyroJerk-std-Z','tBodyAccMag-mean','tBodyAccMag-std','tGravityAccMag-mean','tGravityAccMag-std','tBodyAccJerkMag-mean','tBodyAccJerkMag-std','tBodyGyroMag-mean','tBodyGyroMag-std','tBodyGyroJerkMag-mean','tBodyGyroJerkMag-std','fBodyAcc-mean-X','fBodyAcc-mean-Y','fBodyAcc-mean-Z','fBodyAcc-std-X','fBodyAcc-std-Y','fBodyAcc-std-Z','fBodyAccJerk-mean-X','fBodyAccJerk-mean-Y','fBodyAccJerk-mean-Z','fBodyAccJerk-std-X','fBodyAccJerk-std-Y','fBodyAccJerk-std-Z','fBodyGyro-mean-X','fBodyGyro-mean-Y','fBodyGyro-mean-Z','fBodyGyro-std-X','fBodyGyro-std-Y','fBodyGyro-std-Z','fBodyAccMag-mean','fBodyAccMag-std','fBodyBodyAccJerkMag-mean','fBodyBodyAccJerkMag-std','fBodyBodyGyroMag-mean','fBodyBodyGyroMag-std','fBodyBodyGyroJerkMag-mean','fBodyBodyGyroJerkMag','angle_tBodyAccMean_gravityMean','angle_tBodyGyro_gravityMean','angle_tBodyGyroMean_gravityMean','angle_tBodyGyroJerkMean_gravityMean','angle_X_gravityMean','angle_Y_gravityMean','angle_Z_gravityMean'),widths=c(16,16,16,16,16,16,-544,16,16,16,16,16,16,-544,16,16,16,16,16,16,-544,16,16,16,16,16,16,-544,16,16,16,16,16,16,-544,16,16,-176,16,16,-176,16,16,-176,16,16,-176,16,16,-176,16,16,16,16,16,16,-1168,16,16,16,16,16,16,-1168,16,16,16,16,16,16,-1168,16,16,-176,16,16,-176,16,16,-176,16,16,-176,16,16,16,16,16,16,16))})
-<br>        Reduce(function(x,y) {rbind(x,y)}, datalist)}
-<br>    DF=multmerge(directory)
-<br>    DF_mean=sapply(DF,mean)
-<br>    write.table(DF_mean,file="./average_measurement.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
+<br>run_analysis <- function(directory="./"){
+<br>&nbsb&nbsb    multmerge = function(mypath,colnames,colfmt){
+<br>&nbsb&nbsb&nbsb&nbsb        filenames=list.files(path=mypath,pattern="X_[a-zA-Z]{1,}.txt", full.names=TRUE)
+<br>&nbsb&nbsb&nbsb&nbsb        datalist = lapply(filenames, function(x){read.fwf(file=x,col.names=colnames,widths=colfmt)})
+<br>&nbsb&nbsb&nbsb&nbsb        Reduce(function(x,y) {rbind(x,y)}, datalist)}
+<br>&nbsb&nbsb    dfn<-read.table(paste(directory,"features.txt",sep="/"))
+<br>&nbsb&nbsb    vname<-gsub("\\(|\\)|-|,","",dfn[grepl("[sS]td|[mM]ean",dfn$V2)=="TRUE","V2"])
+<br>&nbsb&nbsb    fmt<-as.numeric(gsub("FALSE","-16",gsub("TRUE","16",grepl("[sS]td|[Mm]ean",dfn$V2))))
+<br>&nbsb&nbsb    DF=multmerge(directory,vname,fmt)
+<br>&nbsb&nbsb    DF_mean=sapply(DF,mean)
+<br>&nbsb&nbsb    write.table(DF_mean,file="./average_measurement.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
+<br>&nbsb&nbsb    write.table(vname,file="./average_measurement_descriptions.txt",row.names=FALSE,col.names=FALSE,sep="\t",quote=FALSE)
 <br>}
 
 
