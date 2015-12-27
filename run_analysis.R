@@ -1,4 +1,4 @@
-### 1. Copy X_Train.txt and X_test.txt data the same as source code folder
+### 1. Copy X_Train.txt, X_test.txt data, and features.txt the same as source code folder
 ### 2. setwd to the same dir as this source code
 ### 3. source("run_analysis.R")
 ### 4. run_analysis() or the path run_analysis(path) that have those data file only
