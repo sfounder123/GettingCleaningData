@@ -9,8 +9,8 @@ Code implementation:  (All double quotes in below are either the variables or me
 
 The definition of the result (average_measurement.txt):
 
-<br>yAcc.mean.X
-<br>yAcc.mean.Y
+<br>tBodyAcc.mean.X
+<br>tBodyAcc.mean.Y
 <br>tBodyAcc.mean.Z
 <br>tBodyAcc.std.X
 <br>tBodyAcc.std.Y
