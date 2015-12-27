@@ -1,5 +1,4 @@
-# GettingCleaningData
-GettingCleaningData
+# GettingCleaningData Project Readme
 Samsung Galaxy S smartphone collect 30 volunteers within an age bracket of 19-48 years activities. Each person perform six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING). A full description is available at the site where the data was obtained: 
 
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
